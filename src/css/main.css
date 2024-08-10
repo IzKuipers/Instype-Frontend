@@ -42,6 +42,10 @@ main div.members div.member {
   height: fit-content;
 }
 
+main div.members div.member.background {
+  opacity: 0.1;
+}
+
 main div.clients {
   height: 60px;
 }

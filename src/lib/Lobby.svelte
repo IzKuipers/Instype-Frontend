@@ -16,13 +16,17 @@
 </script>
 
 <div class="lobby">
-  <input
-    type="text"
-    placeholder="Nickname?"
-    bind:value={nickname}
-    disabled={working}
-  />
-  <button on:click={connect} disabled={working}>
-    {working ? "WAIT..." : "CONNECT"}
-  </button>
+  <h1>InsType</h1>
+  <p class="sub">Enter a nickname to continue</p>
+  <div>
+    <input
+      type="text"
+      placeholder="Nickname?"
+      bind:value={nickname}
+      disabled={working}
+    />
+    <button on:click={connect} disabled={working || !nickname}>
+      {working ? "WAIT..." : "CONNECT"}
+    </button>
+  </div>
 </div>

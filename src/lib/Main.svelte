@@ -26,7 +26,9 @@
     <div class="members">
       {#if $Texts}
         {#each Object.entries($Texts) as [nickname, text]}
-          <div class="member" title={nickname}>{text}</div>
+          <div class="member" title={nickname} class:background={!text.trim()}>
+            {text.trim() || "#"}
+          </div>
         {/each}
       {/if}
     </div>
