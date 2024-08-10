@@ -11,9 +11,7 @@ export let socket: Socket | null;
 
 export async function ConnectAs(nickname: string) {
   socket = SocketIO(
-    import.meta.env.DEV
-      ? "http://localhost:9898"
-      : `https://insapi.twiserver.nl`
+    import.meta.env.DEV ? "http://localhost:9898" : `https://insapi.sacruda.nl`
   );
 
   socket.connect();
