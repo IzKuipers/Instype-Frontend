@@ -1,0 +1,43 @@
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+}
+
+main div.you {
+  display: flex;
+  align-items: center;
+}
+
+main div.you input {
+  flex-grow: 1;
+}
+
+main div.members-wrapper {
+  height: calc(100vh - 60px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main div.members {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: start;
+  justify-content: center;
+  gap: 1em;
+}
+
+main div.members div.member {
+  flex-grow: 1;
+  height: 100px;
+  max-width: 30vw;
+  min-width: fit-content;
+  width: 100vw;
+  text-align: center;
+  padding: 30px;
+  word-break: break-all;
+  height: fit-content;
+}
