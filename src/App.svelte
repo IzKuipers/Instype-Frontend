@@ -2,7 +2,11 @@
   import Lobby from "./lib/Lobby.svelte";
   import Main from "./lib/Main.svelte";
 
-  import { Connected } from "./ts/client";
+  import { Connected, socket } from "./ts/client";
+
+  window.addEventListener("beforeunload", () => {
+    if (socket) socket.disconnect();
+  });
 </script>
 
 {#if $Connected}
