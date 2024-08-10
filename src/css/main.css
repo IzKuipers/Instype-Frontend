@@ -16,7 +16,7 @@ main div.you input {
 }
 
 main div.members-wrapper {
-  height: calc(100vh - 60px);
+  height: calc(100vh - 120px);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -40,4 +40,13 @@ main div.members div.member {
   padding: 30px;
   word-break: break-all;
   height: fit-content;
+}
+
+main div.clients {
+  height: 60px;
+}
+
+main div.clients span.client::after {
+  content: "|";
+  opacity: 0.2;
 }

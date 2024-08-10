@@ -10,19 +10,17 @@ export const Texts = Store<Record<string, string>>({});
 export let socket: Socket | null;
 
 export async function ConnectAs(nickname: string) {
-  socket = SocketIO(
-    import.meta.env.DEV ? "http://localhost:9898" : `https://insapi.sacruda.nl`
-  );
+  socket = SocketIO(`https://insapi.sacruda.nl`);
 
   socket.connect();
-
   socket.on("connect_error", disconnect);
   socket.emit("activate", nickname);
+
   socket.on("connected", () => {
-    alert("Connected");
     Connected.set(true);
     Nickname.set(nickname);
   });
+
   socket.on("disconnect", () => {
     Connected.set(false);
     Nickname.set("");

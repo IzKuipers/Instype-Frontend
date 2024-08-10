@@ -7,9 +7,21 @@
   text.subscribe((v) => {
     socket?.emit("text", v || " ");
   });
+
+  function leave() {
+    socket?.disconnect();
+    location.reload();
+  }
 </script>
 
 <main>
+  <div class="clients">
+    {#if $Texts}
+      {#each Object.entries($Texts) as [nickname]}
+        <span class="client">{nickname}</span>
+      {/each}
+    {/if}
+  </div>
   <div class="members-wrapper">
     <div class="members">
       {#if $Texts}
@@ -21,5 +33,6 @@
   </div>
   <div class="you">
     <input type="text" bind:value={$text} />
+    <button class="leave" on:click={leave}>LEAVE</button>
   </div>
 </main>
