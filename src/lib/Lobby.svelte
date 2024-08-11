@@ -1,15 +1,15 @@
 <script lang="ts">
   import { ConnectAs } from "../ts/client";
 
-  let nickname: string;
+  let nickname: string = "";
   let working = false;
 
   async function connect() {
-    // if (!nickname) return;
+    if (!nickname.trim()) return;
 
     working = true;
 
-    await ConnectAs(nickname);
+    await ConnectAs(nickname.trim());
 
     working = false;
   }
@@ -25,7 +25,7 @@
       bind:value={nickname}
       disabled={working}
     />
-    <button on:click={connect} disabled={working || !nickname}>
+    <button on:click={connect} disabled={working || !nickname.trim()}>
       {working ? "WAIT..." : "CONNECT"}
     </button>
   </div>

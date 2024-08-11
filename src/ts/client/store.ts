@@ -1,4 +1,4 @@
-import { LastSaid, Texts } from ".";
+import { Announcement, LastSaid, Nickname, Texts } from ".";
 import type { Listeners } from "../../types/listeners";
 
 export const ListenerStore: Listeners = {
@@ -14,6 +14,8 @@ export const ListenerStore: Listeners = {
     Texts.set(texts);
   },
   leave: (nickname: string) => {
+    Announcement.set(`${nickname} left the session`);
+
     const texts = Texts.get() || {};
 
     delete texts[nickname];
@@ -21,6 +23,9 @@ export const ListenerStore: Listeners = {
     Texts.set(texts);
   },
   join: (nickname: string) => {
+    if (nickname !== Nickname.get())
+      Announcement.set(`${nickname} joined the session`);
+
     const texts = Texts.get() || {};
 
     texts[nickname] = "";

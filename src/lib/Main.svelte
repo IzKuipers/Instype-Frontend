@@ -35,6 +35,7 @@
             style="--nick: '{nickname == $Nickname ? 'You' : nickname}';"
             class:me={nickname == $Nickname}
             class:last-said={$LastSaid == nickname}
+            class:singular={Object.entries($Texts).length == 1}
           >
             <span>{text.trim() || "(quiet)"}</span>
           </div>

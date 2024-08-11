@@ -1,4 +1,5 @@
 <script>
+  import Announcer from "./lib/Announcer.svelte";
   import Lobby from "./lib/Lobby.svelte";
   import Main from "./lib/Main.svelte";
 
@@ -14,3 +15,4 @@
 {:else}
   <Lobby />
 {/if}
+<Announcer />

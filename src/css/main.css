@@ -45,6 +45,25 @@ main div.members div.member {
   border: #222 3px solid;
   background-color: #111;
   border-radius: 5px;
+  pointer-events: none;
+}
+
+main div.members div.member.singular {
+  max-width: unset;
+  height: 100%;
+  max-height: unset;
+  background-color: transparent;
+  border: none !important;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 30px);
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  box-shadow: none !important;
 }
 
 main div.members div.member.me {
