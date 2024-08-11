@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { socket, Texts } from "../ts/client";
+  import { LastSaid, Nickname, socket, Texts } from "../ts/client";
   import { Store } from "../ts/writable";
 
   let text = Store<string>();
@@ -18,7 +18,9 @@
   <div class="clients">
     {#if $Texts}
       {#each Object.entries($Texts) as [nickname]}
-        <span class="client">{nickname}</span>
+        <span class="client" class:you={nickname == $Nickname}
+          >{nickname}{$Nickname == nickname ? " (you)" : ""}</span
+        >
       {/each}
     {/if}
   </div>
@@ -26,8 +28,15 @@
     <div class="members">
       {#if $Texts}
         {#each Object.entries($Texts) as [nickname, text]}
-          <div class="member" title={nickname} class:background={!text.trim()}>
-            {text.trim() || "#"}
+          <div
+            class="member"
+            title={nickname}
+            class:background={!text.trim()}
+            style="--nick: '{nickname == $Nickname ? 'You' : nickname}';"
+            class:me={nickname == $Nickname}
+            class:last-said={$LastSaid == nickname}
+          >
+            <span>{text.trim() || "(quiet)"}</span>
           </div>
         {/each}
       {/if}

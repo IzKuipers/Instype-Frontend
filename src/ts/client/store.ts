@@ -1,4 +1,4 @@
-import { Texts } from ".";
+import { LastSaid, Texts } from ".";
 import type { Listeners } from "../../types/listeners";
 
 export const ListenerStore: Listeners = {
@@ -7,6 +7,7 @@ export const ListenerStore: Listeners = {
 
     texts[nickname] = content;
 
+    LastSaid.set(nickname);
     Texts.set(texts);
   },
   clients: (texts: Record<string, string>) => {

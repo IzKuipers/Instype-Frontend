@@ -6,6 +6,7 @@ import { addListeners } from "./listener";
 export const Connected = Store<boolean>(false);
 export const Nickname = Store<string>("");
 export const Texts = Store<Record<string, string>>({});
+export const LastSaid = Store<string>("");
 
 export let socket: Socket | null;
 
