@@ -12,7 +12,7 @@ export const Announcement = Store<string>("");
 export let socket: Socket | null;
 
 export async function ConnectAs(nickname: string) {
-  socket = SocketIO(`https://insapi.sacruda.nl`);
+  socket = SocketIO(`https://insapi.izkuipers.nl`);
 
   socket.connect();
   socket.on("connect_error", disconnect);
