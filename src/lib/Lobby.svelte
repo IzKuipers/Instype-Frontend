@@ -13,6 +13,10 @@
 
     working = false;
   }
+
+  function keydown(e: KeyboardEvent) {
+    if (e.key === "Enter") connect();
+  }
 </script>
 
 <div class="lobby">
@@ -24,6 +28,7 @@
       placeholder="Nickname?"
       bind:value={nickname}
       disabled={working}
+      on:keydown={keydown}
     />
     <button on:click={connect} disabled={working || !nickname.trim()}>
       {working ? "WAIT..." : "CONNECT"}
